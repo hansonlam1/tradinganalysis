@@ -3,6 +3,8 @@ import datetime
 import os
 import pandas as pd
 
+import calculations as calc
+
 PATH = './data'
 
 columns = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume','Adjustment']
@@ -19,7 +21,8 @@ df.drop_duplicates(subset=columns, keep='first', inplace=True)
 df['Date'] = pd.to_datetime(df['Date'])
 df.sort_values(by=['Date'], inplace=True, ascending=True)
 
-# lambda calcs where no dependencies on different row
+
+# use lambda calcs where no dependencies on prior rows
 
 
 # other cals where prior day(s) are involved
