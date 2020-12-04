@@ -17,23 +17,23 @@ def dayrange(high, low):
     return rng
 
 
-def nextday8020(o,h,l,c):
+def today8020(o,h,l,c):
     min_perc = 0.20
     max_perc = 0.80
     dayrange = h - l
     # if dayrange is 0 no need to calc
     if dayrange == 0:
-        d = 'no setup'
+        d = 'not8020'
     else:
         o_perc = (o - l)/dayrange
         c_perc = (c - l)/dayrange
     
         if o > c and c_perc < min_perc and o_perc > max_perc:
-            d = 'long'
+            d = 'down'
         elif c > o and c_perc > max_perc and o_perc < min_perc:
-            d = 'short'
+            d = 'up'
         else:
-            d = 'no setup'
+            d = 'not8020'
     return d
 
 
@@ -49,9 +49,9 @@ def opengap(df):
 def smaclose(df, s, f):
     df['fast_sma'] = df['Close'].rolling(f).mean()
     df['slow_sma'] = df['Close'].rolling(s).mean()
-    #also includes an indicator based on something I read from Linda Raschke
-    df['lbrosc'] = df['fast_sma'] - df['slow_sma']
-    df['lbrosc_signal'] = df['lbrosc'].rolling(16).mean()
+    #an indicator based on something from Linda Raschke
+    #df['lbrosc'] = df['fast_sma'] - df['slow_sma']
+    #df['lbrosc_signal'] = df['lbrosc'].rolling(16).mean()
     return df
 
 
