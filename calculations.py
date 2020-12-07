@@ -17,38 +17,28 @@ def dayrange(high, low):
     return rng
 
 
-def today8020(o,h,l,c):
-    min_perc = 0.20
-    max_perc = 0.80
-    dayrange = h - l
-    # if dayrange is 0 no need to calc
-    if dayrange == 0:
-        d = 'not8020'
-    else:
-        o_perc = (o - l)/dayrange
-        c_perc = (c - l)/dayrange
-    
-        if o > c and c_perc < min_perc and o_perc > max_perc:
-            d = 'down'
-        elif c > o and c_perc > max_perc and o_perc < min_perc:
-            d = 'up'
-        else:
-            d = 'not8020'
-    return d
+def priordayvalues(df):
+    df['PriorOpen'] = df['Open'].shift()
+    df['PriorClose'] = df['Close'].shift()
+    df['PriorHigh'] = df['High'].shift()
+    df['PriorLow'] = df['Low'].shift()
+
+    return df
 
 
 def opengap(df):
     # add a column with the opening gap
-    df['opengap'] = df['Open'] - df['Close'].shift()
-    df['opengap'].fillna(0, inplace=True)
-    df['opengap_perc'] = (df['opengap'] / df['Close'].shift()) * 100
-    df['gapclosed'] = (df['Low'] <= df['Close'].shift()) & (df['High'] >= df['Close'].shift())
+    df['OpenGap'] = df['Open'] - df['Close'].shift()
+    df['OpenGap'].fillna(0, inplace=True)
+    df['OpenGap_Perc'] = (df['opengap'] / df['Close'].shift()) * 100
+    df['GapClosed'] = (df['Low'] <= df['Close'].shift()) & (df['High'] 
+        >= df['Close'].shift())
     return df
 
 
 def smaclose(df, s, f):
-    df['fast_sma'] = df['Close'].rolling(f).mean()
-    df['slow_sma'] = df['Close'].rolling(s).mean()
+    df['FastSMA'] = df['Close'].rolling(f).mean()
+    df['SlowSMA'] = df['Close'].rolling(s).mean()
     #an indicator based on something from Linda Raschke
     #df['lbrosc'] = df['fast_sma'] - df['slow_sma']
     #df['lbrosc_signal'] = df['lbrosc'].rolling(16).mean()
@@ -57,7 +47,7 @@ def smaclose(df, s, f):
 
 def simpletrend(df, t):
     #add a sma
-    df['simplesma'] = df['Close'].rolling(t).mean()
+    df['SimpleSMA'] = df['Close'].rolling(t).mean()
     #yesterday did it close above or below the sma
-    df['uptrend'] = (df['Close'].shift() > df['simplesma'])
+    df['Uptrend'] = (df['Close'].shift() > df['simplesma'])
     return df
