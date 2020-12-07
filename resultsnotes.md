@@ -7,9 +7,9 @@
 
 ### AMZN (2013 to 2019)
 
-Trade8020
-longloss       59
-longwin        88
-notrade      1392
-shortloss      94
-shortwin      103
+*Trade8020
+- longloss       59
+- longwin        88 (88 wins out of 147 long trades, ~58.9%)
+- notrade      1392
+- shortloss      94
+- shortwin      103 (103 wins out of 197 short trades, ~52.2%)
