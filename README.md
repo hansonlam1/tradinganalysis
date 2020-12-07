@@ -1,2 +1,5 @@
 # tradinganalysis
-Trying to gather stats for some trading ideas
+Gathering basic statistics for a variety of trading ideas.
+
+# Key Notes
+Market data is daily data extracted from IB TWS in csv format

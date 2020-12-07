@@ -41,4 +41,4 @@ df.shape
 df.head(20)
 
 table = pd.pivot_table(df, index=['Trade8020'], aggfunc='count')
-table
+table['Close']
