@@ -8,7 +8,7 @@ def trigger8020(priorhigh, priorlow, prioropen, priorclose):
     priordayrange = priorhigh - priorlow
     # if priordayrange is 0 no need to calc
     if priordayrange == 0:
-        d = 'not8020'
+        t = 'not8020'
     else:
         o_perc = (prioropen - priorlow)/priordayrange
         c_perc = (priorclose - priorlow)/priordayrange
