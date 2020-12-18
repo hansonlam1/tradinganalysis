@@ -21,7 +21,6 @@ def trade8020(close, priorhigh, priorlow, prioropen, priorclose):
     max_perc = 0.80
     priordayrange = priorhigh - priorlow
 
-
     if priordayrange == 0:
         r = 'notrade'
     else:
