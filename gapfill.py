@@ -1,0 +1,1 @@
+#how often does a gap from prior day fill?
