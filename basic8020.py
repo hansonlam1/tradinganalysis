@@ -1,19 +1,5 @@
-import datetime as dt
 import pandas as pd
 import basedf as basedf
-
-
-
-def run8020test(df):
-
-    df['Trade8020'] = df.apply(lambda x: trade8020(x['Close'],
-        x['PriorHigh'],x['PriorLow'],x['PriorOpen'],x['PriorClose']),axis=1)
-
-    df.shape
-    df.head(20)
-
-    table = pd.pivot_table(df, index=['Trade8020'], aggfunc='count')
-    print(table['Close'])
 
 
 def trade8020(close, priorhigh, priorlow, prioropen, priorclose):
@@ -42,6 +28,18 @@ def trade8020(close, priorhigh, priorlow, prioropen, priorclose):
         else:
             r = 'notrade'
     return r
+
+
+def run8020test(df):
+
+    df['Trade8020'] = df.apply(lambda x: trade8020(x['Close'],
+        x['PriorHigh'],x['PriorLow'],x['PriorOpen'],x['PriorClose']),axis=1)
+
+    df.shape
+    df.head(20)
+
+    table = pd.pivot_table(df, index=['Trade8020'], aggfunc='count')
+    print(table['Close'])
 
 
 if __name__ == "__main__":
