@@ -13,4 +13,5 @@ Market data is daily data extracted from IB TWS in csv format
 
 - basic8020: intraday play on exhaustion of previous days move
 - gapfill: how often does an opening gap get filled
+- gap8020: does a gap open after 8020 result in a 8020 win?
 - 8020continuation:
