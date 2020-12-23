@@ -26,23 +26,20 @@ def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, lo
         elif prioropen > priorclose and c_perc < min_perc and o_perc > max_perc \
             and todayopen >= priorlow and close <= priorlow:
             r = 'long_nogap_loss'
-
-
-
-
-        #fix the rest
-
-        elif priorclose > prioropen and c_perc > max_perc and \
-            o_perc < min_perc and close < priorhigh:
-            r = 'shortwin'
-        elif priorclose > prioropen and c_perc > max_perc and \
-            o_perc < min_perc and close >= priorhigh:
-            r = 'shortloss'
+        elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
+            and todayopen > priorhigh and close < priorhigh:
+            r = 'short_yesgap_win'
+        elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
+            and todayopen <= priorhigh and close < priorhigh:
+            r = 'short_nogap_win'
+        elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
+            and todayopen > priorhigh and close >= priorhigh:
+            r = 'short_yesgap_loss'
+        elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
+            and todayopen <= priorhigh and close >= priorhigh:
+            r = 'short_nogap_loss'
         else:
             r = 'notrade'
-
-
-    
 
     return r
 
@@ -55,6 +52,7 @@ def rungap8020test(df):
     
     table = pd.pivot_table(df, index=['TradeGap8020'], aggfunc='count')
     print(table['Close'])
+
 
 if __name__ == "__main__":
     df = basedf.prepcoredata()

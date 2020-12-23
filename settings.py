@@ -1,1 +1,1 @@
-PATH='./data/amzn/'
+PATH='./data/msft/'
