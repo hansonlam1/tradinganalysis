@@ -1,1 +1,1 @@
-PATH='./data/bac/'
+PATH='./data/aapl/'
