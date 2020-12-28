@@ -23,7 +23,7 @@ def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, lo
             r = 'long_nogap_trigger_win'
         elif prioropen > priorclose and c_perc < min_perc and o_perc > max_perc \
             and todayopen >= priorlow and low > priorlow and close > priorlow:
-            r = 'long_nogap_notrigger_win'
+            r = 'notrigger'
         elif prioropen > priorclose and c_perc < min_perc and o_perc > max_perc \
             and todayopen < priorlow and close <= priorlow:
             r = 'long_yesgap_loss'
@@ -33,7 +33,7 @@ def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, lo
             r = 'long_nogap_trigger_loss'
         elif prioropen > priorclose and c_perc < min_perc and o_perc > max_perc \
             and todayopen >= priorlow and low > priorlow and close <= priorlow:
-            r = 'long_nogap_notrigger_loss'
+            r = 'notrigger'
 
         elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
             and todayopen > priorhigh and close < priorhigh:
@@ -43,7 +43,7 @@ def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, lo
             r = 'short_nogap_trigger_win'
         elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
             and todayopen <= priorhigh and high < priorhigh and close < priorhigh:
-            r = 'short_nogap_notrigger_win'
+            r = 'notrigger'
         elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
             and todayopen > priorhigh and close >= priorhigh:
             r = 'short_yesgap_loss'
@@ -53,9 +53,9 @@ def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, lo
             r = 'short_nogap_trigger_loss'
         elif priorclose > prioropen and c_perc > max_perc and o_perc < min_perc \
             and todayopen <= priorhigh and high < priorhigh and close >= priorhigh:
-            r = 'short_nogap_notrigger_loss'
+            r = 'notrigger'
         else:
-            r = 'notrade'
+            r = 'notrigger'
 
     return r
 
