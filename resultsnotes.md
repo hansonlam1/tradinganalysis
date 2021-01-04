@@ -32,6 +32,34 @@ short_yesgap_win              23
 56 nogap wins (57%)
 41 nogap losses
 
+### BAC (2016 - 2020)
+long_nogap_trigger_loss       17
+long_nogap_trigger_win        21
+long_yesgap_loss              27
+long_yesgap_win               14
+notrigger                   1081
+short_nogap_trigger_loss      22
+short_nogap_trigger_win       27
+short_yesgap_loss             34
+short_yesgap_win              16
+
+48 nogap wins (55%)
+39 nogap losses
+
+### MSFT (2016-2020)
+long_nogap_trigger_loss      11
+long_nogap_trigger_win       24
+long_yesgap_loss              5
+long_yesgap_win              11
+notrigger                   875
+short_nogap_trigger_loss     12
+short_nogap_trigger_win      14
+short_yesgap_loss            36
+short_yesgap_win             19
+
+38 nogap wins (62%)
+23 nogap losses
+
 ### SPY (2011 to 2020)
 long_nogap_trigger_loss       32
 long_nogap_trigger_win        49
