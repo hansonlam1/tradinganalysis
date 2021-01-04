@@ -2,7 +2,7 @@
 import pandas as pd
 import basedf as basedf
 
-def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, low, close):
+def full8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, low, close):
 
     min_perc = 0.20
     max_perc = 0.80
@@ -60,8 +60,8 @@ def tradegap8020(prioropen, priorhigh, priorlow, priorclose, todayopen, high, lo
     return r
 
 
-def rungap8020test(df):
-    df['TradeGap8020'] = df.apply(lambda x: tradegap8020(x['PriorOpen']
+def runfull8020test(df):
+    df['TradeGap8020'] = df.apply(lambda x: full8020(x['PriorOpen']
     ,x['PriorHigh'],x['PriorLow'],x['PriorClose'],x['Open']
     ,x['High'],x['Low'],x['Close']),axis=1)
 
@@ -72,4 +72,4 @@ def rungap8020test(df):
 
 if __name__ == "__main__":
     df = basedf.prepcoredata()
-    rungap8020test(df)
+    runfull8020test(df)

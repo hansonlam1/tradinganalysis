@@ -1,1 +1,1 @@
-PATH='./data/msft/'
+PATH='./data/aapl/'
